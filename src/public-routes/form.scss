@@ -1,17 +1,11 @@
-.form-container{
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    .form{
-      padding: 2rem;
-      border-radius: 10px;
-      width: min(400px, 90vw);
-    }
-    .input-class{
-        // outline: none;
-        // border: none; /* Remove default border */
-        // border-bottom: 1px solid yellow; /* Add bottom border */
-        // transition: border-bottom-color 0.3s;
-    }
+.form-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .form {
+    padding: 2rem;
+    border-radius: 10px;
+    width: min(400px, 90vw);
+  }  
 }

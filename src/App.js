@@ -4,12 +4,12 @@ import LoginWrapper from './auth/LoginWrapper.js'
 import { createContext, useState } from 'react';
 import NotFound from './components/NotFound.js';
 import Profile from './private-routes/Profile.js';
+import NavBar from './public-routes/NavBar.js';
 
 export const AuthContext = createContext()
-
 function App() {
 
-  const [isLoogedIn, setIsLoggedIn] = useState(()=>Boolean(localStorage.getItem('token')))
+  const [isLoogedIn, setIsLoggedIn] = useState(() => Boolean(localStorage.getItem('token')))
 
   return (
     <div className="App">

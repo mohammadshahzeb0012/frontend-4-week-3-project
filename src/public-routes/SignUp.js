@@ -29,15 +29,17 @@ const SignUp = () => {
   return (
     <div className="form-container">
       <Form className="form" layout="vertical" onFinish={handelSignUp}>
+        <h2 style={{color:'white'}}>Sign Up</h2>
         <Form.Item
-          label="Namse"
+          label="Name"
           name="name"
           className="input-class"
           rules={[
             { required: true, message: "Full Name is reqired" },
           ]}
         >
-          <Input placeholder="Enter your Full Name" name="name" />
+          <Input placeholder="Enter your Full Name" name="name"
+          />
         </Form.Item>
 
         <Form.Item
@@ -60,7 +62,8 @@ const SignUp = () => {
             { required: true, message: 'Password is required' },
           ]}
         >
-          <Input.Password />
+          <Input.Password
+            placeholder='Password' />
         </Form.Item>
         <Form.Item
           label="Conferm Password"
@@ -70,7 +73,8 @@ const SignUp = () => {
             { required: true, message: 'Conferm Password is required' },
           ]}
         >
-          <Input.Password />
+          <Input.Password
+            placeholder='Conferm Password' />
         </Form.Item>
 
         {
@@ -85,7 +89,6 @@ const SignUp = () => {
           loading={signUpMessage.status === "pending"}
           style={{ margin: '20px 0' }}
         >Sign Up</Button>
-        <p>Already have an account ? <Link to="/login">Sign in</Link></p>
       </Form>
     </div>
   )

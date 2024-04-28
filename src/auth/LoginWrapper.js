@@ -4,24 +4,20 @@ import PageLoadingWrapper from '../components/PageLoadingWrapper'
 import NotFound from '../components/NotFound'
 import { useContext } from 'react'
 import { AuthContext } from '../App'
+import NavBar from '../public-routes/NavBar'
 
-const Login = lazy(() => import('../public-routes/Login'))
 const SignUp = lazy(() => import('../public-routes/SignUp'))
 
 const LoginWrapper = ({ children }) => {
-    const {isLoogedIn} = useContext(AuthContext)
+    const { isLoogedIn } = useContext(AuthContext)
     if (!isLoogedIn) {
         return (
             <BrowserRouter>
+            <NavBar />
                 <Routes>
+
                     <Route
-                        path='/login'
-                        element={
-                            <PageLoadingWrapper >
-                                <Login />
-                            </PageLoadingWrapper>} />
-                    <Route
-                        path='/signup'
+                        path='/'
                         element={
                             <PageLoadingWrapper >
                                 <SignUp />
