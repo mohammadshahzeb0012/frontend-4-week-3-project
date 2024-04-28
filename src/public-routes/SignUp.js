@@ -1,6 +1,6 @@
 import './form.scss'
 import { Button, Form, Input, message } from "antd";
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from '../App';
 import tokenGenerator from '../tokenGenerator'
@@ -9,7 +9,9 @@ const SignUp = () => {
 
   const navigate = useNavigate();
   const [signUpMessage, setSignUpMessage] = useState({ status: 'init', message: '' })
-  const { setIsLoggedIn } = useContext(AuthContext)
+  const {isLoogedIn, setIsLoggedIn } = useContext(AuthContext)
+
+
 
   const handelSignUp = (form) => {
     setSignUpMessage({ status: ("pending") })
@@ -18,8 +20,8 @@ const SignUp = () => {
       localStorage.setItem('token', JSON.stringify(form))
       setSignUpMessage({ status: 'success', message: 'Succesfully Signed Up!  You will be redirected to profile page' })
       setTimeout(() => {
-        setIsLoggedIn(true)
         navigate('/profile')
+        setIsLoggedIn(true)
       }, 2000);
     } else {
       setSignUpMessage({ status: 'error', message: 'Conferm Password Not Matched' })
@@ -29,7 +31,7 @@ const SignUp = () => {
   return (
     <div className="form-container">
       <Form className="form" layout="vertical" onFinish={handelSignUp}>
-        <h2 style={{color:'white'}}>Sign Up</h2>
+        <h2 style={{ color: 'white' }}>Sign Up</h2>
         <Form.Item
           label="Name"
           name="name"

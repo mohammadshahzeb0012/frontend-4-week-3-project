@@ -5,6 +5,7 @@ import NotFound from '../components/NotFound'
 import { useContext } from 'react'
 import { AuthContext } from '../App'
 import NavBar from '../public-routes/NavBar'
+import Redirect from '../components/Redirect'
 
 const SignUp = lazy(() => import('../public-routes/SignUp'))
 
@@ -15,7 +16,11 @@ const LoginWrapper = ({ children }) => {
             <BrowserRouter>
             <NavBar />
                 <Routes>
+                    {/* <Route 
+                    path='/profile' element={Redirect}
+                    
 
+                    /> */}
                     <Route
                         path='/'
                         element={

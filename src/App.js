@@ -1,16 +1,17 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes, redirect, useNavigate } from 'react-router-dom';
 import './App.css';
 import LoginWrapper from './auth/LoginWrapper.js'
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import NotFound from './components/NotFound.js';
 import Profile from './private-routes/Profile.js';
 import NavBar from './public-routes/NavBar.js';
+import Redirect from './components/Redirect.js';
+
 
 export const AuthContext = createContext()
 function App() {
 
   const [isLoogedIn, setIsLoggedIn] = useState(() => Boolean(localStorage.getItem('token')))
-
   return (
     <div className="App">
 
@@ -18,7 +19,8 @@ function App() {
         <LoginWrapper>
           <BrowserRouter>
             <Routes>
-              <Route path='/profile' element={<Profile />} />
+              <Route path='/profile' element={<Profile  />} />
+              <Route path='/' element={<Redirect />} />
               <Route path='*' element={<NotFound />} />
             </Routes>
           </BrowserRouter>
